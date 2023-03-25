@@ -10,21 +10,22 @@ def main(data, eta, epochs, filename, plotfilename):
     model = Perceptron(eta= eta, epochs = epochs)
     model.fit(X,y)
 
-    _ = model.total_loss()  # _ is dummy variable
+    _ = model.total_loss()
 
     save_model(model, filename=filename)
     save_plot(df, plotfilename ,model)
 
 if __name__ == "__main__":
 
-    AND = {
-        "x1": [0,0,1,1],
-        "x2": [0,1,0,1],
-        "y": [0,0,0,1],
+    OR = {
+        "x1": [0,1,0,1],
+        "x2": [0,0,1,1],
+        "y": [0,1,1,1]
+
     }
 
-    df = pd.DataFrame(AND)
+    df = pd.DataFrame(OR)
     ETA = 0.3 # Learning rate is in between 0 and 1
     EPOCHS = 10
 
-    main(data=df, eta=ETA, epochs=EPOCHS, filename="and.model", plotfilename="and.png")    
+    main(data=df, eta=ETA, epochs=EPOCHS, filename="or.model", plotfilename="or.png")    
