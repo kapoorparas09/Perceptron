@@ -10,6 +10,14 @@ plt.style.use("fivethirtyeight")
 
 
 def prepare_data(df):
+  """ This will prepare the data
+
+  Args:
+      df (_type_): _description_
+
+  Returns:
+      _type_: _description_
+  """
 
   logging.info("Preparing the data by separating Predictors and Targets...")
   X = df.drop(['y'], axis=1)
@@ -26,6 +34,13 @@ def save_model(model, filename):
   logging.info(f"Saved the trained model at {filePath}")
 
 def save_plot(df, file_name, model):
+  """ This will save the polts
+
+  Args:
+      df (_type_): _description_
+      file_name (_type_): _description_
+      model (_type_): _description_
+  """
   def create_base_plot(df):
     logging.info("Creating the base plot")
     df.plot(kind="scatter", x="x1", y="x2", c="y", s=100, cmap="winter")
